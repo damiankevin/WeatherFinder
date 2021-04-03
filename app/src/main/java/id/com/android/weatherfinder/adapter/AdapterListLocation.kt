@@ -3,7 +3,8 @@ package id.com.android.weatherfinder.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import id.com.android.weatherfinder.feature.`interface`.InterfaceContentCollection
+import id.com.android.weatherfinder.feature.InterfaceContentCollection
+import id.com.android.weatherfinder.feature.userlayer.fragment.FragmentSearch
 import id.com.android.weatherfinder.holder.HolderListLocation
 import id.com.android.weatherfinder.holder.HolderNoLocation
 import id.com.android.weatherfinder.model.ModelDB
@@ -21,7 +22,9 @@ class AdapterListLocation(context: Context?) : androidx.recyclerview.widget.Recy
     var interfaceContentCollection: InterfaceContentCollection? = null
 
     override fun getItemViewType(position: Int): Int {
-        return if (itemCount == 0) { ITEM_TYPE_NO_LOCATION }
+        return if (itemCount == 0) {
+            ITEM_TYPE_NO_LOCATION
+        }
         else{
             ITEM_TYPE_CONTENT
         }

@@ -8,7 +8,6 @@ import id.com.android.weatherfinder.injector.module.ModuleApplication
 import id.com.android.weatherfinder.injector.module.ModulePersistance
 import id.com.android.weatherfinder.injector.scope.PerApplication
 import id.com.android.weatherfinder.repository.RepositoryContent
-//import id.com.android.moviedb.repository.RepositoryContent
 import id.com.android.weatherfinder.repository.RepositorySettings
 
 @PerApplication

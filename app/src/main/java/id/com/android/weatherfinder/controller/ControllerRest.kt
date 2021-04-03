@@ -7,6 +7,7 @@ import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
 import id.com.android.weatherfinder.BuildConfig
+import id.com.android.weatherfinder.tools.UtilConstant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -22,7 +23,7 @@ class ControllerRest {
         val client = OkHttpClient.Builder()
         if(BuildConfig.DEBUG) client.addInterceptor(logInterceptor)
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/")
+            .baseUrl(UtilConstant.URL_DEFAULT)
             .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
             .client(client.build())
             .build()

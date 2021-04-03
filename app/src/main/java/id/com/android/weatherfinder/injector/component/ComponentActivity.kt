@@ -4,6 +4,7 @@ import dagger.Component
 import id.com.android.weatherfinder.feature.ActivityBase
 import id.com.android.weatherfinder.feature.userlayer.activity.ui.HomeActivity
 import id.com.android.weatherfinder.feature.userlayer.activity.ui.SplashActivity
+import id.com.android.weatherfinder.feature.userlayer.fragment.FragmentFavourite
 import id.com.android.weatherfinder.feature.userlayer.fragment.FragmentSearch
 import id.com.android.weatherfinder.injector.module.ModuleActivity
 import id.com.android.weatherfinder.injector.scope.PerActivity
@@ -15,4 +16,5 @@ interface ComponentActivity {
     fun inject (activitySplashActivity      : SplashActivity)
     fun inject (activityHomeActivity        : HomeActivity)
     fun inject (fragmentSearch              : FragmentSearch)
+    fun inject (fragmentFavourite           : FragmentFavourite)
 }

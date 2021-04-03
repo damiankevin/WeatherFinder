@@ -15,8 +15,24 @@ abstract class RepositoryContent : RoomDatabase() {
 
     @Dao
     interface ContentDao {
+        @Query("SELECT id FROM location where hasFavourite LIKE :favourite")
+        fun allContentIdFavourite(favourite: Boolean?): List<Int>
 
+        @Query("DELETE FROM location WHERE id = :id")
+        fun deleteFavourite(id: Int?)
+
+        @Insert(onConflict = OnConflictStrategy.REPLACE)
+        fun addContent(content: ModelDB): Long
     }
+
+    class ContentConverterFavourite(var content: ModelDB) {
+        fun toContent(): ModelDB? {
+            val contentDetail = content
+            contentDetail.hasFavourite = true
+            return contentDetail
+        }
+    }
+
 
     companion object {
         fun newInstance(application: Application): RepositoryContent {

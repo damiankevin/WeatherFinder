@@ -1,10 +1,6 @@
 package id.com.android.weatherfinder.holder
 
-import android.content.Context
 import android.view.View
-import id.com.android.weatherfinder.feature.`interface`.InterfaceContentCollection
-import id.com.android.weatherfinder.model.ModelDB
-import kotlinx.android.synthetic.main.holder_list_location.view.*
 
 class HolderNoLocation(itemView : View?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView!!) {
 

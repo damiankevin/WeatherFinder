@@ -16,9 +16,8 @@ import id.com.android.weatherfinder.feature.viewlayer.ViewSearch
 import id.com.android.weatherfinder.model.ModelDB
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
-class FragmentSearch : FragmentBase(), ViewSearch, InterfaceContentCollection {
+class FragmentFavourite : FragmentBase(), ViewSearch, InterfaceContentCollection {
 
     companion object {
         var LAYOUT_RESOURCE : Int           = R.layout.fragment_search

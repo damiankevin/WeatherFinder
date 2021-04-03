@@ -1,4 +1,4 @@
-package id.com.android.weatherfinder.feature.`interface`
+package id.com.android.weatherfinder.feature
 
 import id.com.android.weatherfinder.model.ModelDB
 
