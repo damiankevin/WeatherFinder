@@ -4,12 +4,19 @@ import android.app.Application
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.room.migration.Migration
+import id.com.android.weatherfinder.model.ModelDB
 import id.com.android.weatherfinder.tools.UtilConstant
 
 
-
+@Database(entities = [(ModelDB::class)], version = UtilConstant.DATA_CONTENT_VERSION)
+@TypeConverters()
 abstract class RepositoryContent : RoomDatabase() {
+    abstract fun contentDao(): ContentDao
 
+    @Dao
+    interface ContentDao {
+
+    }
 
     companion object {
         fun newInstance(application: Application): RepositoryContent {

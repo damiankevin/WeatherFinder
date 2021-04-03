@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="@dimen/padding_margin_normal"
+        android:paddingTop="@dimen/padding_margin_normal"
+        android:paddingRight="@dimen/padding_margin_normal"
+        android:paddingBottom="@dimen/padding_margin_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/view_watchlist_search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="#c0c0c0"
+            android:src="@drawable/ic_search" />
+
+        <ImageView
+            android:id="@+id/view_keyword_watchlist_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:tint="@color/colorWhite"
+            android:visibility="gone"
+            android:src="@drawable/ic_close" />
+
+        <EditText
+            android:id="@+id/view_keyword_location"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_margin_normal_thin"
+            android:layout_toLeftOf="@id/view_keyword_watchlist_clear"
+            android:layout_toRightOf="@id/view_watchlist_search_icon"
+            android:background="@android:color/transparent"
+            android:focusableInTouchMode="true"
+            android:hint="Search location"
+            android:imeOptions="actionSearch"
+            android:inputType="text|textCapWords|textNoSuggestions"
+            android:textColor="@color/color_text_white"
+            android:textColorHint="@color/color_text_white_secondary"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp">
+
+        </EditText>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_recyclerview_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

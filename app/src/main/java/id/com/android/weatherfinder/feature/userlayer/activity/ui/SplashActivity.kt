@@ -1,6 +1,7 @@
 
 package id.com.android.weatherfinder.feature.userlayer.activity.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
@@ -40,6 +41,9 @@ class SplashActivity :  ActivityBase(), ViewSplash {
 
         Handler().postDelayed({
 
+            val intent          = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
 
         }, 2000)
 

@@ -29,5 +29,10 @@
     <string name="budget">Budget</string>
     <string name="releasedate">Release Date</string>
     <string name="openurl">Open URL</string>
+    <string name="title_activity_home">Home Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="no_location_found">No Location Found</string>
 
 </resources>
