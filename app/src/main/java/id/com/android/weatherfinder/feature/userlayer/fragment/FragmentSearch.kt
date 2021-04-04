@@ -1,5 +1,6 @@
 package id.com.android.weatherfinder.feature.userlayer.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,8 +13,11 @@ import id.com.android.weatherfinder.adapter.AdapterListLocation
 import id.com.android.weatherfinder.feature.ActivityBase
 import id.com.android.weatherfinder.feature.InterfaceContentCollection
 import id.com.android.weatherfinder.feature.presenterlayer.PresenterSearch
+import id.com.android.weatherfinder.feature.userlayer.activity.ui.HomeActivity
+import id.com.android.weatherfinder.feature.userlayer.activity.ui.WeatherActivity
 import id.com.android.weatherfinder.feature.viewlayer.ViewSearch
 import id.com.android.weatherfinder.model.ModelDB
+import id.com.android.weatherfinder.tools.UtilConstant
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
@@ -68,13 +72,16 @@ class FragmentSearch : FragmentBase(), ViewSearch, InterfaceContentCollection {
     }
 
     override fun showSuccessLoadData(results: ArrayList<ModelDB>) {
+        adapterListLocation.noContent = false
         adapterListLocation.collectionLocation?.clear()
         adapterListLocation.collectionLocation?.addAll(results)
         adapterListLocation.notifyDataSetChanged()
     }
 
-    override fun showEmptySearchHistory() {
-
+    override fun showEmpty() {
+        adapterListLocation.noContent = true
+        adapterListLocation.collectionLocation?.clear()
+        adapterListLocation.notifyDataSetChanged()
     }
 
     override fun onContentFavourite(content: ModelDB, position: Int) {
@@ -92,7 +99,10 @@ class FragmentSearch : FragmentBase(), ViewSearch, InterfaceContentCollection {
     }
 
     override fun onContentSelected(content: ModelDB) {
-
+        val intent          = Intent(activity, WeatherActivity::class.java)
+        intent.putExtra(UtilConstant.WEATHER_ID,content.id.toString())
+        intent.putExtra(UtilConstant.WEATHER_NAME,content.name)
+        startActivity(intent)
     }
 
     private fun initializeCollection() {

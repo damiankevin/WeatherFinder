@@ -23,6 +23,9 @@ abstract class RepositoryContent : RoomDatabase() {
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
         fun addContent(content: ModelDB): Long
+
+        @Query("SELECT * FROM location")
+        fun getContent(): List<ModelDB>
     }
 
     class ContentConverterFavourite(var content: ModelDB) {

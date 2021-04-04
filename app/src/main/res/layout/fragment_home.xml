@@ -1,22 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_collection_parent_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.userlayer.activity.ui.ui.home.HomeFragment">
+    android:orientation="vertical"
+    tools:ignore="UnusedAttribute">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/view_weather_swiperefreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/view_weather_layout_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/view_holder_location_name"
+                            style="@style/Base.TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/padding_margin_normal_medium"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/gotham_bold"
+                            android:gravity="center_vertical"
+                            android:maxLines="2"
+                            android:text="Jakarta"
+                            android:textColor="@color/color_text"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/padding_margin_normal_thin"
+                            android:layout_marginTop="@dimen/padding_margin_normal_thin"
+                            android:layout_marginRight="@dimen/padding_margin_normal_thin"
+                            android:layout_marginBottom="@dimen/padding_margin_normal_thin"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorBackgroundSecond"
+                                android:orientation="vertical"
+                                android:padding="@dimen/padding_margin_normal">
+
+                                <RelativeLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/viewhome_weather_min_max_temp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:fontFamily="@font/gotham_bold"
+                                        android:textColor="@color/colorWhite70"
+                                        android:textSize="@dimen/normal_font_size" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/view_home_weather_temp"
+                                        style="@style/Base.TextAppearance.AppCompat.Caption"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:fontFamily="@font/gotham_bold"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="2"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="@dimen/most_large_font" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/view_home_weather_content_logo"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="@dimen/padding_margin_normal"
+                                        android:layout_toRightOf="@+id/view_home_weather_temp" />
+
+                                </RelativeLayout>
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/view_home_weathe_haze"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:fontFamily="@font/gotham_bold"
+                                    android:textColor="@color/colorWhite70"
+                                    android:textSize="@dimen/normal_font_size" />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/padding_margin_normal"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="14dp"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_wind"
+                                        android:tint="@color/colorWhite" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/view_home_weather_wind"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="@dimen/padding_margin_normal"
+                                        android:fontFamily="@font/gotham_bold"
+                                        android:textColor="@color/colorWhite70"
+                                        android:textSize="@dimen/normal_font_size" />
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <include layout="@layout/holder_no_location"></include>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>

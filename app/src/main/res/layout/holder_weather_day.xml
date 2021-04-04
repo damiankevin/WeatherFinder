@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_margin="@dimen/padding_margin_normal"
+        android:id="@+id/view_holder_weather_date"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/padding_margin_normal_thin"
+        android:ellipsize="end"
+        android:fontFamily="@font/gotham_bold"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:text="28 - 4 - 3"
+        android:textColor="@color/color_text_secondary"
+        android:textSize="@dimen/medium_font_size" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_holder_recyclerview_weather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

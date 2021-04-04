@@ -1,6 +1,9 @@
 package id.com.android.weatherfinder.holder
 
 import android.view.View
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.holder_no_location.*
+import kotlinx.android.synthetic.main.holder_no_location.view.*
 
 class HolderNoLocation(itemView : View?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView!!) {
 
@@ -10,11 +13,7 @@ class HolderNoLocation(itemView : View?) : androidx.recyclerview.widget.Recycler
     }
 
     fun bindingContent () {
-
-
-
+        itemView?.        view_holder_no_location.visibility = View.VISIBLE
     }
-
-
 
 }

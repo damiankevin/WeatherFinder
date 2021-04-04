@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
+    android:visibility="gone"
+    android:id="@+id/view_holder_no_location"
     android:padding="@dimen/padding_margin_normal">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -19,6 +21,7 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_holder_no_location_text"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

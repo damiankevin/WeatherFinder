@@ -20,19 +20,25 @@ class AdapterListLocation(context: Context?) : androidx.recyclerview.widget.Recy
     private var itemContext: Context? = context
     var context: Context? = context
     var interfaceContentCollection: InterfaceContentCollection? = null
+    var noContent : Boolean = false
 
     override fun getItemViewType(position: Int): Int {
-        return if (itemCount == 0) {
-            ITEM_TYPE_NO_LOCATION
+         if (noContent) {
+             return ITEM_TYPE_NO_LOCATION
         }
         else{
-            ITEM_TYPE_CONTENT
+             return ITEM_TYPE_CONTENT
         }
 
     }
 
     override fun getItemCount(): Int {
-        return collectionLocation?.size!!
+        if (noContent) {
+            return collectionLocation?.size!! +1
+        }
+        else{
+            return collectionLocation?.size!!
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {

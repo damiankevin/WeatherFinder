@@ -46,7 +46,11 @@ class PresenterSearch : PresenterBase<ViewSearch> {
                     object : TypeToken<ArrayList<ModelDB?>?>() {}.type
                 )
                 arrayLocation.addAll(results)
-                viewLayer?.showSuccessLoadData(setFavouriteContent(arrayLocation))
+                if(arrayLocation?.size==0){
+                    viewLayer?.showEmpty()
+                }else{
+                    viewLayer?.showSuccessLoadData(setFavouriteContent(arrayLocation))
+                }
             }
         }
 
@@ -68,7 +72,12 @@ class PresenterSearch : PresenterBase<ViewSearch> {
             uiThread {
                 collectionPersistance.clear()
                 collectionPersistance = collectionID as ArrayList<Int>
-                viewLayer?.showSuccessLoadData(setFavouriteContent(tempArray))
+                if(tempArray.size==0){
+                    viewLayer?.showEmpty()
+                }else{
+                    viewLayer?.showSuccessLoadData(setFavouriteContent(tempArray))
+                }
+
             }
         }
 
