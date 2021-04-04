@@ -1,6 +1,7 @@
 package id.com.android.weatherfinder.feature.userlayer.activity.ui
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import id.com.android.weatherfinder.R
@@ -74,8 +75,11 @@ class WeatherActivity :  ActivityBase(),ViewWeather, SwipeRefreshLayout.OnRefres
     }
 
     override fun showFailedLoad() {
-        view_holder_failed_load_data.visibility = View.VISIBLE
-        view_weather_layout_content.visibility = View.GONE
+        runOnUiThread {
+            view_holder_failed_load_data.visibility = View.VISIBLE
+            view_weather_layout_content.visibility = View.GONE
+        }
+
     }
 
     override fun onRefresh() {
@@ -83,5 +87,20 @@ class WeatherActivity :  ActivityBase(),ViewWeather, SwipeRefreshLayout.OnRefres
         adapterWeatherDetail.collectionWeather?.clear()
         adapterWeatherDetail.notifyDataSetChanged()
         presenterWeather.weatherLoaded(intent.getStringExtra(UtilConstant.WEATHER_ID))
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+        return false
+    }
+
+    override fun onBackPressed() {
+        if (isTaskRoot) {
+
+        }
+        finish()
+        overridePendingTransition(0, 0)
     }
 }

@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "id.com.android.weathefinder"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -75,8 +75,6 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.8"
 
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
     //navigation bottom for fragment transaction
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'

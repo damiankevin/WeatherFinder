@@ -11,8 +11,10 @@ import id.com.android.weatherfinder.feature.presenterlayer.PresenterHome
 import id.com.android.weatherfinder.feature.viewlayer.ViewHome
 import id.com.android.weatherfinder.model.weather.ModelWeatherList
 import id.com.android.weatherfinder.tools.UtilConstant
+import id.com.android.weatherfinder.tools.UtilImage
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.holder_no_location.*
+import kotlinx.android.synthetic.main.holder_weather_content.view.*
 import javax.inject.Inject
 
 
@@ -64,6 +66,7 @@ class FragmentHome : FragmentBase(), ViewHome,SwipeRefreshLayout.OnRefreshListen
             viewhome_weather_min_max_temp.text = convertKelvinToCelcius(content?.main?.temp_min) + "/ "+convertKelvinToCelcius(content?.main?.temp_max)
             view_home_weathe_haze.text = content?.weather?.get(0)?.main
             view_home_weather_wind.text =  content?.wind?.speed.toString()+"km/h  | "+ content?.wind?.deg.toString()+"°"
+            UtilImage.loadImageWithoutPlaceholder(view_home_weather_content_logo,  UtilConstant.URL_DEFAULT+UtilConstant.PATH_IMAGE+content?.weather?.get(0)?.icon+".png", context)
         }
 
     }
@@ -74,8 +77,11 @@ class FragmentHome : FragmentBase(), ViewHome,SwipeRefreshLayout.OnRefreshListen
     }
 
     override fun showFailedLoad() {
-        view_holder_no_location.visibility = View.VISIBLE
-        view_weather_layout_content.visibility = View.GONE
+        activity?.runOnUiThread {
+            view_holder_no_location.visibility = View.VISIBLE
+            view_weather_layout_content.visibility = View.GONE
+        }
+
 
     }
 

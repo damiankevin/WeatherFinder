@@ -29,7 +29,7 @@ class HolderWeatherContent(itemView : View?, context : Context?) : androidx.recy
 
 
         content?.main?.temp?.let {
-            itemView.view_holder_weather_content_temperature?.text = it.toString()+" K"
+            itemView.view_holder_weather_content_temperature?.text = convertKelvinToCelcius(it)
         }
 
         content?.main?.humidity?.let {
@@ -49,6 +49,11 @@ class HolderWeatherContent(itemView : View?, context : Context?) : androidx.recy
         spf = SimpleDateFormat("hh:mm")
         date = spf.format(newDate)
         return  date
+    }
+
+    private fun convertKelvinToCelcius(temp: Double?): String? {
+        var celcius= (temp!! -273.15).toInt()
+        return "$celcius°C"
     }
 
 
